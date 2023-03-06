@@ -1,11 +1,36 @@
+
 public class Sol extends Divisa {
-
-    private Divisa dolar = new Dolar();
-
+    public Divisa divisa;
+    public Divisa escogerTipoDeMoneda(String moneda){
+        Divisa result;
+        switch (moneda){
+            case "Dolar":
+                result = new Dolar();
+                break;
+            case "Euro":
+                result = new Euro();
+                break;
+            case "Libras":
+                result = new Libras();
+                break;
+            case "Yen":
+                result = new Yen();
+                break;
+            case "Won Koreano":
+                result = new WonKoreano();
+                break;
+            case "PesosMXN":
+                result = new PesosMXN();
+                break;
+            default:
+                result = new Sol();
+        }
+        return this.divisa = result;
+    }
 
     @Override
     public double getTipoDeCambioActual() {
-        return dolar.getTipoDeCambioActual();
+        return divisa.getTipoDeCambioActual();
     }
 
     @Override
@@ -15,6 +40,6 @@ public class Sol extends Divisa {
 
     @Override
     public double convertir(int cantidad) {
-        return 0;
+        return getTipoDeCambioActual() * cantidad;
     }
 }

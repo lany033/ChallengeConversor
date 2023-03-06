@@ -7,7 +7,6 @@ public abstract class Divisa implements Conversor{
 
     public abstract String sufijo();
 
-
     public double convertir(int cantidad) {
         return 0;
     }

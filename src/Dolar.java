@@ -1,8 +1,12 @@
 public class Dolar extends Divisa {
 
+    public Dolar() {
+
+    }
+
     @Override
     public double getTipoDeCambioActual() {
-        return 3.5;
+        return 3.8;
     }
 
     @Override

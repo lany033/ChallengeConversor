@@ -1,13 +1,10 @@
 import javax.swing.JOptionPane;
-
-import static jdk.nashorn.internal.objects.NativeFunction.function;
-
 public class Main {
     public static void main(String[] args) {
         Object [] opciones = {"Conversor de moneda","Conversor de temperatura"};
         Object opcion = JOptionPane.showInputDialog(null,"Seleccione una opcion de conversion","Menu",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
         if (opcion.toString().equals("Conversor de moneda")) {
-            Object [] opcionDeConversion = {"De Sol a Dolar","De Sol a Euro","De Sol a Libras","De Sol a Yen","De Sol a Won Koreano","De Sol a PesosMXN","De Dolar a Sol","De Euro a Sol","De Libras a Sol","De Yen a Sol","De Won Koreano a Sol","De PesoMXN a Soles"};
+            Object [] opcionDeConversion = {"De Sol a Dolar","De Sol a Euro","De Sol a Libras","De Sol a Yen","De Sol a Won Koreano","De Sol a PesosMXN","De Dolar a Sol","De Euro a Sol","De Libras a Sol","De Yen a Sol","De Won Koreano a Sol","De PesoMXN a Sol"};
             Object conversiones = JOptionPane.showInputDialog(null,"Elije la moneda a la que deseas convertir tu dinero","Monedas",JOptionPane.QUESTION_MESSAGE,null,opcionDeConversion,opcionDeConversion[0]);
             Divisa result;
             switch (conversiones.toString()){
@@ -30,7 +27,22 @@ public class Main {
                     result = new PesosMXN();
                     break;
                 case "De Dolar a Sol":
-                    result = new Sol();
+                    result = new Sol().escogerTipoDeMoneda("Dolar");
+                    break;
+                case "De Euro a Sol":
+                    result = new Sol().escogerTipoDeMoneda("Euro");
+                    break;
+                case "De Libras a Sol":
+                    result = new Sol().escogerTipoDeMoneda("Libras");
+                    break;
+                case "De Yen a Sol":
+                    result = new Sol().escogerTipoDeMoneda("Yen");
+                    break;
+                case "De Won Koreano a Sol":
+                    result = new Sol().escogerTipoDeMoneda("Won Koreano");
+                    break;
+                case "De PesoMXN a Sol":
+                    result = new Sol().escogerTipoDeMoneda("PesosMXN");
                     break;
                 default:
                     result = new Sol();
