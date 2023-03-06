@@ -1,4 +1,4 @@
-public class PesosMXN extends Divisa implements Conversor {
+public class PesosMXN extends Divisa {
 
     private Divisa divisa;
 
@@ -8,7 +8,12 @@ public class PesosMXN extends Divisa implements Conversor {
     }
 
     @Override
+    public String sufijo() {
+        return "PesosMXN";
+    }
+
+    @Override
     public double convertir(int cantidad) {
-        return this.getTipoDeCambioActual() * cantidad;
+        return cantidad / getTipoDeCambioActual();
     }
 }

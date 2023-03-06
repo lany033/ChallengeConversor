@@ -1,4 +1,4 @@
-public class Yen extends Divisa implements Conversor {
+public class Yen extends Divisa {
 
     private Divisa divisa;
 
@@ -8,7 +8,12 @@ public class Yen extends Divisa implements Conversor {
     }
 
     @Override
+    public String sufijo() {
+        return "Yenes";
+    }
+
+    @Override
     public double convertir(int cantidad) {
-        return this.getTipoDeCambioActual() * cantidad;
+        return cantidad / getTipoDeCambioActual();
     }
 }

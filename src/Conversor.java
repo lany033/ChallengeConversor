@@ -1,3 +1,3 @@
 public interface Conversor {
-public double convertir(int cantidad);
+double convertir(int cantidad);
 }

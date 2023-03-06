@@ -1,7 +1,7 @@
 public class TestDivisa {
     public static void main(String[] args) {
-        Sol sol = new Sol();
+        Divisa moneda = new Dolar();
 
-        System.out.println("Usted convierte a" + sol.convertir(5));
+        System.out.println("Usted convierte a" + moneda.convertir(5));
     }
 }

@@ -1,40 +1,20 @@
-public class Sol extends Divisa implements Conversor {
+public class Sol extends Divisa {
 
-    private Divisa divisa;
+    private Divisa dolar = new Dolar();
 
-    private String eleccionDeDivisa;
-
-    public Object Divisa() {
-        Divisa result = null;
-        switch (eleccionDeDivisa) {
-            case "Dolar":
-                result = new Dolar();
-                break;
-            case "Euro":
-                result = new Euro();
-                break;
-            case "PesosMXN":
-                result = new PesosMXN();
-                break;
-            case "Libras":
-                result = new Libras();
-                break;
-            case "Yen":
-                result = new Yen();
-                break;
-            case "WonKoreano":
-                result = new WonKoreano();
-        }
-        return result;
-    }
 
     @Override
     public double getTipoDeCambioActual() {
-        return divisa.getTipoDeCambioActual();
+        return dolar.getTipoDeCambioActual();
+    }
+
+    @Override
+    public String sufijo() {
+        return "Soles";
     }
 
     @Override
     public double convertir(int cantidad) {
-        return this.getTipoDeCambioActual() * cantidad;
+        return 0;
     }
 }

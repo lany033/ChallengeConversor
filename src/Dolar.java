@@ -1,6 +1,4 @@
-public class Dolar extends Divisa implements Conversor {
-
-    private Divisa divisa;
+public class Dolar extends Divisa {
 
     @Override
     public double getTipoDeCambioActual() {
@@ -8,7 +6,12 @@ public class Dolar extends Divisa implements Conversor {
     }
 
     @Override
+    public String sufijo() {
+        return "Dolares";
+    }
+
+    @Override
     public double convertir(int cantidad) {
-        return this.getTipoDeCambioActual() * cantidad;
+        return cantidad / getTipoDeCambioActual();
     }
 }

@@ -1,4 +1,4 @@
-public class WonKoreano extends Divisa implements Conversor {
+public class WonKoreano extends Divisa {
 
     private Divisa divisa;
 
@@ -8,7 +8,12 @@ public class WonKoreano extends Divisa implements Conversor {
     }
 
     @Override
+    public String sufijo() {
+        return "Won Koreanos";
+    }
+
+    @Override
     public double convertir(int cantidad) {
-        return this.getTipoDeCambioActual() * cantidad;
+        return cantidad / getTipoDeCambioActual();
     }
 }
