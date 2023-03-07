@@ -48,8 +48,21 @@ public class Main {
                     result = new Sol();
                     break;
             }
-            int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese valor"));
-            JOptionPane.showMessageDialog(null, "Tienes "+ result.convertir(cantidad)+ " " + result.sufijo(), "Message", 1);
+            try {
+                int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese valor"));
+                JOptionPane.showMessageDialog(null, "Tienes "+ result.convertir(cantidad)+ " " + result.sufijo(), "Message", 1);
+                int ventanaYesNotCancel = JOptionPane.showConfirmDialog(null, "¿Desea continuar?","Select an Option",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+                if(ventanaYesNotCancel == 0) {
+                    System.out.println("Has pulsado Yes");
+                }else if(ventanaYesNotCancel == 1){
+                    System.out.println("Has pulsado No");
+                }else if(ventanaYesNotCancel == 2){
+                    System.out.println("Has pulsado Cancel");
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Valor no valido");
+            }
 
         }else {
             System.out.println("Eligio conversor de temperatura");
