@@ -1,19 +1,22 @@
 public class PesosMXN extends Divisa {
-
-    private Divisa divisa;
-
+    public String sufijo = "dolares";
     @Override
     public double getTipoDeCambioActual() {
         return 0.21;
     }
 
     @Override
-    public String sufijo() {
+    public String getSufijo() {
         return "PesosMXN";
     }
 
     @Override
-    public double convertir(int cantidad) {
+    public double convertir(double cantidad) {
         return cantidad / getTipoDeCambioActual();
+    }
+
+    @Override
+    public double convertidorASoles(double cantidad) {
+        return cantidad * getTipoDeCambioActual();
     }
 }

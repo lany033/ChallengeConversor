@@ -1,21 +1,18 @@
 public class Dolar extends Divisa {
 
-    public Dolar() {
-
-    }
-
-    @Override
     public double getTipoDeCambioActual() {
         return 3.8;
     }
-
+    public String getSufijo() {
+        return "dolares";
+    }
     @Override
-    public String sufijo() {
-        return "Dolares";
+    public double convertir(double cantidad) {
+        return cantidad / getTipoDeCambioActual();
     }
 
     @Override
-    public double convertir(int cantidad) {
-        return cantidad / getTipoDeCambioActual();
+    public double convertidorASoles(double cantidad) {
+        return cantidad * getTipoDeCambioActual();
     }
 }

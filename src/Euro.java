@@ -1,19 +1,21 @@
 public class Euro extends Divisa {
-
-    private Divisa divisa;
-
     @Override
     public double getTipoDeCambioActual() {
         return 4.02;
     }
-
     @Override
-    public String sufijo() {
+    public String getSufijo() {
         return "Euros";
     }
-
     @Override
-    public double convertir(int cantidad) {
+    public double convertir(double cantidad) {
         return cantidad / getTipoDeCambioActual();
     }
+
+    @Override
+    public double convertidorASoles(double cantidad) {
+        return cantidad * getTipoDeCambioActual();
+    }
+
+
 }

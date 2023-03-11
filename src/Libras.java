@@ -1,19 +1,17 @@
 public class Libras extends Divisa {
+    @Override
+    public double convertir(double cantidad) {
+        return cantidad / getTipoDeCambioActual();
+    }
 
-    private Divisa divisa;
+    @Override
+    public double convertidorASoles(double cantidad) {
+        return cantidad * getTipoDeCambioActual();
+    }
 
     @Override
     public double getTipoDeCambioActual() {
         return 4.55;
     }
 
-    @Override
-    public String sufijo() {
-        return "libras";
-    }
-
-    @Override
-    public double convertir(int cantidad) {
-        return cantidad / getTipoDeCambioActual();
-    }
 }

@@ -1,13 +1,16 @@
 public abstract class Divisa implements Conversor{
     private double tipoDeCambioActual;
+    private String sufijo;
 
-    public double getTipoDeCambioActual() {
+    public String getSufijo() {
+        return sufijo;
+    }
+
+    public double convertir(double cantidad) {
         return tipoDeCambioActual;
     }
 
-    public abstract String sufijo();
-
-    public double convertir(int cantidad) {
-        return 0;
+    protected double getTipoDeCambioActual() {
+        return tipoDeCambioActual;
     }
 }
