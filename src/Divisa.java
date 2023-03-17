@@ -1,4 +1,4 @@
-public abstract class Divisa implements Conversor{
+public abstract class Divisa implements ConversorMonetario {
     private double tipoDeCambioActual;
     private String sufijo;
 

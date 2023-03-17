@@ -3,6 +3,9 @@ public class Main {
     static Object opcion;
     static Object conversiones;
     static Divisa result;
+    static Escalas escala = new Escalas();
+
+    static boolean confirm = false;
     public static void main(String[] args) {
         escogerTipoDeConversor();
     }
@@ -13,7 +16,13 @@ public class Main {
         if (opcion.toString().equals("Conversor de moneda")) {
             conversorDeMonedas();
         }else {
-            System.out.println("Eligio conversor de temperatura");
+            try {
+                conversorDeTemperatura();
+                generarVentanaConfirmDialog();
+            } catch (Exception e) {
+                e.printStackTrace();
+                generarVentanaDialogoInvalido();
+            }
         }
     }
 
@@ -85,6 +94,36 @@ public class Main {
             generarVentanaDialogoInvalido();
         }
     }
+
+    public static Object elegirTipoDeConversionDeTemperatura() {
+        Object [] opcionDeConversion = {"De Celsius a Fahrenheit","De Farenheit a Celsius","De Celsius a Kelvin","De Kelvin a Celsius","De Fahrenheit a Kelvin","De Kelvin a Fahrenheit"};
+        return conversiones = JOptionPane.showInputDialog(null,"Elije la conversion de temperatura","Escalas",JOptionPane.QUESTION_MESSAGE,null,opcionDeConversion,opcionDeConversion[0]);
+    }
+
+    public static void conversorDeTemperatura(){
+        double cantidad = Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese valor"));
+        switch (elegirTipoDeConversionDeTemperatura().toString()){
+            case "De Celsius a Fahrenheit":
+                escala.celsiusAFahrenheit(cantidad);
+                break;
+            case "De Farenheit a Celsius":
+                escala.FahrenheitACelsius(cantidad);
+                break;
+            case "De Celsius a Kelvin":
+                escala.celsiusAKelvin(cantidad);
+                break;
+            case "De Kelvin a Celsius":
+                escala.KelvinACelsius(cantidad);
+                break;
+            case "De Fahrenheit a Kelvin":
+                escala.FahrenheitAKelvin(cantidad);
+                break;
+            case "De Kelvin a Fahrenheit":
+                escala.KelvinAFahrenheit(cantidad);
+                break;
+        }
+    }
+
     public static void generarVentanaConfirmDialog(){
         int ventanaYesNotCancel = JOptionPane.showConfirmDialog(null, "¿Desea continuar?","Select an Option",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ventanaYesNotCancel == 0) {
